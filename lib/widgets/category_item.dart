@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 class CategoryItem extends StatelessWidget {
@@ -7,6 +6,7 @@ class CategoryItem extends StatelessWidget {
   final String id;
   final String title;
   final Color color;
+  
 
   @override
   Widget build(BuildContext context) => InkWell(
@@ -24,10 +24,8 @@ class CategoryItem extends StatelessWidget {
           ),
           child: Text(
             title,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-            ),
+            // style: textStyleTheme,
+            style: Theme.of(context).textTheme.titleLarge,
           ),
         ),
       );
