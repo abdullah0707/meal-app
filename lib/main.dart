@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:meal_app/screens/categories_screen.dart';
+import 'package:meal_app/screens/meal_detail_screen.dart';
+import 'screens/category_meals_screen.dart';
+import 'screens/tabs_screen.dart';
 
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   static TextTheme textStyleTheme = ThemeData.light().textTheme.copyWith(
         bodyLarge: const TextStyle(color: Color.fromRGBO(20, 50, 50, 1)),
@@ -33,24 +35,31 @@ class MyApp extends StatelessWidget {
               primary: Colors.pink, secondary: Colors.amber),
         ),
         themeMode: ThemeMode.dark,
-        home: const CategoriesScreen(),
+        // home: const CategoriesScreen(),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => const TabsScreen(),
+          CategoryMealsScreen.routeName: (context) =>
+              const CategoryMealsScreen(),
+          MealDetailScreen.routeName: (context) => const MealDetailScreen(),
+        },
       );
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+// class MyHomePage extends StatefulWidget {
+//   const MyHomePage({Key? key}) : super(key: key);
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
+//   @override
+//   State<MyHomePage> createState() => _MyHomePageState();
+// }
 
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          title: const Text('Meal App'),
-          centerTitle: true,
-        ),
-        body: const CategoriesScreen(),
-      );
-}
+// class _MyHomePageState extends State<MyHomePage> {
+//   @override
+//   Widget build(BuildContext context) => Scaffold(
+//         appBar: AppBar(
+//           title: const Text('Meal App'),
+//           centerTitle: true,
+//         ),
+//         body: const CategoriesScreen(),
+//       );
+// }

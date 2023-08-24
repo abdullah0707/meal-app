@@ -3,14 +3,14 @@ import '../widgets/category_item.dart';
 import '../dummy_data.dart';
 
 class CategoriesScreen extends StatelessWidget {
-  const CategoriesScreen({super.key});
+  const CategoriesScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          title: const Text('Meal Screen'),
-          centerTitle: true,
-        ),
+        // appBar: AppBar(
+        //   title: const Text('Meal Screen'),
+        //   centerTitle: true,
+        // ),
         body: GridView(
           padding: const EdgeInsets.all(25),
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
