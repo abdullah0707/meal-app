@@ -29,26 +29,28 @@ class MainDrawer extends StatelessWidget {
               Icons.restaurant,
               'Meal',
               () => Navigator.of(context).pushReplacementNamed('/'),
+              context,
             ),
             buildListTile(
               Icons.filter_alt,
               'Filters',
               () => Navigator.of(context)
                   .pushReplacementNamed(FiltersScreen.routeName),
+              context,
             ),
           ],
         ),
       );
 
-  ListTile buildListTile(icon, title, tapHandler) => ListTile(
-        leading: Icon(icon, size: 26),
+  ListTile buildListTile(icon, title, tapHandler, ctx) => ListTile(
+        leading: Icon(
+          icon,
+          size: 26,
+          color: Theme.of(ctx).colorScheme.primary,
+        ),
         title: Text(
           title,
-          style: const TextStyle(
-            fontSize: 24,
-            fontFamily: 'RobotoCondensed',
-            fontWeight: FontWeight.bold,
-          ),
+          style: Theme.of(ctx).textTheme.titleLarge,
         ),
         onTap: tapHandler,
       );
